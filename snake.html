@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>snake game</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <script src="jquery.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Acme|Josefin+Sans');
+        @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+        body {
+            margin: 0px;
+            padding: 0px;
+            background: #78dfff;
+            max-width: 700px;
+        }
+        
+        header {
+            height: 30px;
+            background: #e93330;
+        }
+        
+        #hl {
+            float: left;
+            padding-left: 5%;
+        }
+        
+        #hr {
+            float: right;
+            text-align: right;
+            padding-right: 5%;
+        }
+        
+        #hl,
+        #hr {
+            width: 40%;
+            padding-top: 5px;
+            color: #fff;
+            font-weight: 900;
+            font-family: 'Acme', sans-serif;
+        }
+        
+        #DIV {
+            width: 300px;
+            margin: 0 auto;
+        }
+        
+        p {
+            height: 10px;
+            width: 10px;
+            background: #000;
+            position: relative;
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+            line-height: 10px;
+        }
+        
+        button {
+            transform: translateY(-270px);
+            width: 30%;
+            height: 40px;
+            margin: 0;
+            padding: 0;
+            border: 2px solid blue;
+            border-radius: 30px;
+        }
+        
+        .ud {
+            margin: 5px 30%;
+        }
+        
+        #l {
+            margin: 5px 2% 5px 13%;
+            font-size: 18px;
+        }
+        
+        #r {
+            margin: 5px 13% 5px 2%;
+            font-size: 18px;
+        }
+        
+        #d span {
+            display: block;
+            transform: rotateX(180deg);
+            font-size: 20px;
+            margin-top: -5px;
+        }
+        
+        #u span {
+            margin-top: 5px;
+            display: block;
+            font-size: 20px;
+        }
+        
+        #load {
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 500;
+            color: #fff;
+        }
+        
+        #cp {
+            width: 300px;
+            margin: 25px auto;
+        }
+        
+        #bd {
+            width: 100%;
+            background-color: #eee;
+            border-radius: 3px;
+            padding: 1px;
+            box-shadow: inset 0px 3px 1px #ddd;
+        }
+        
+        #bar {
+            display: block;
+            width: 0%;
+            height: 10px;
+            background-color: #0f9816;
+            border-radius: 3px;
+            transition: width 0.05s ease;
+        }
+        
+        h4,
+        h3 {
+            font-family: 'Architects Daughter', cursive;
+            text-align: center;
+        }
+        
+        h1.over {
+            text-align: center;
+            color: #fff;
+            background: #1b4d4e;
+            width: 60%;
+            margin: 40px 20%;
+            border-radius: 30%;
+            padding: 16px 0px;
+        }
+        
+        h3.over {
+            font-size: 25px;
+            color: #a1dcfd;
+            text-align: center;
+            background: #ff0b47;
+            width: 70%;
+            margin: 50px 15%;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding: 20px 0px;
+        }
+    </style>
+</head>
+
+<body onload="move('r')">
+
+    <div id="load">
+
+        <h1 style="text-align:center">Snake</h1>
+        <h3>loading....</h3>
+
+        <div id="cp">
+            <div id="bd"><span id="bar"></span></div>
+        </div>
+
+        <script>
+            let e = $("#bar");
+            let w = 0;
+            setInterval(() => (w != 100) ? e.css('width', `${++w}%`) : $('#load').hide(), 50);
+        </script>
+
+        <h4>Upgraded by: Ryanafiz</h4>
+
+    </div>
+
+    <header>
+        <div id="hl">Your Score : </div>
+        <div id="hr">0</div>
+    </header>
+
+    <div id="DIV"> </div>
+
+    <button id="u" class="ud"><span>^^^</span></button><br>
+    <button id="l">&lt;&lt;&lt;</button>
+    <button id="r">&gt;&gt;&gt;</button><br>
+    <button id="d" class="ud"><span>^^^</span></button>
+
+    <script src="snake.js"></script>
+</body>
+
+</html>
